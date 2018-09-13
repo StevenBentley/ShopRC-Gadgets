@@ -1,0 +1,8 @@
+{
+    "presets":[
+        "react"
+    ],
+    "plugins": [
+      "graphql-js-client-transform"
+    ]
+}

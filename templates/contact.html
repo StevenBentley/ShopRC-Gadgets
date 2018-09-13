@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .form-field {
+    text-align: center;
+  }
+  input[type=text], select, textarea {
+      width: 70%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+  }
+</style>
+<section id="contact">
+  <div class="container">
+  <div class="jumbotron">
+  <h2 class="heading">Contact ShopRc</h2>
+  <hr>
+    <form method="post">
+      {% csrf_token %}
+        <p>
+          {{ form.email.label_tag }}
+          {{ form.email }}
+        </p>
+        <p>
+          {{ form.subject.label_tag }}
+          {{ form.subject }}
+        </p>
+        <p>
+          {{ form.message.label_tag }}
+          <span style="line-height: 100px;">{{ form.message }}</span>
+        </p>
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <hr>
+    <h2 style="text-align: center;">About</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="http://via.placeholder.com/350x350" alt="about placeholder img" />
+      </div>
+      <div class="col-md-8">
+        <p style="text-align: center;">
+          Shop Rc is an online store created using shopify api to import cheap chinese
+          products from oberlo and sell them for a mark up
+        </p>
+      </div>
+    </div>
+</div>
+</div>
+</section>
+{% endblock %}
